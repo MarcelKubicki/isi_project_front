@@ -6,7 +6,6 @@ import './AuthForm.css';
 const SignUp = () => {
   const onFinish = (values) => {
     console.log('Received values:', values);
-    // Tutaj można dodać logikę przetwarzania danych rejestracji
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -15,7 +14,7 @@ const SignUp = () => {
 
   return (
     <div className='webPage'>
-      <div className="container"> {/* Dodanie klasy CSS */}
+      <div className="container">
         <h2 className="title">Rejestracja</h2>
         <Form
           name="basic"

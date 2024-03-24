@@ -1,5 +1,7 @@
 /* AuthForm.css */
 .webPage {
+  background-image: linear-gradient(rgb(51, 109, 85), #33586d) ;
+  /* background-color: rgb(51, 109, 70); */
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -10,14 +12,17 @@
 .container {
   min-width: 400px;
   padding: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid #a3a3a3;
   border-radius: 5px;
-  background-color: #f9f9f9;
+  background-color: hsla(0, 0%, 77%, 0.3);
 }
 
 .title {
+  font-size: 30px;
+  color: #33586d;
   text-align: center;
-  margin-bottom: 20px;
+  margin-top: 0;
+  margin-bottom: 40px;
 }
 
 .form-item {
@@ -34,7 +39,12 @@
 }
 
 p {
+  color:aliceblue;
   display: inline-block;
+}
+
+a {
+  color: #23485d;
 }
 
 .submit-container {

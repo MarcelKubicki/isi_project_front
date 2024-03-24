@@ -1,12 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Form, Input, Button } from 'antd';
-import './AuthForm.css'; // Importowanie stylów
+import './AuthForm.css';
 
 const SignIn = () => {
   const onFinish = (values) => {
     console.log('Received values:', values);
-    // Tutaj można dodać logikę przetwarzania danych logowania
   };
 
   const onFinishFailed = (errorInfo) => {
