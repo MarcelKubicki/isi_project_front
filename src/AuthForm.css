@@ -1,0 +1,49 @@
+/* AuthForm.css */
+.webPage {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  min-width: 400px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-item {
+  margin-bottom: 15px;
+}
+
+.error-message {
+  color: red;
+  margin-top: 5px;
+}
+
+.button-container {
+  display: inline-block;
+}
+
+p {
+  display: inline-block;
+}
+
+.submit-container {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.resetPassword {
+  display: flex;
+  justify-content: end;
+}
