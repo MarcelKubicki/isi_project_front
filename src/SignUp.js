@@ -14,6 +14,9 @@ const SignUp = () => {
 
   return (
     <div className='webPage'>
+      <header className="header">
+        <h1>FriendsZone</h1>
+      </header>
       <div className="container">
         <h2 className="title">Rejestracja</h2>
         <Form

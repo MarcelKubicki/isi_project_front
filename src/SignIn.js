@@ -14,6 +14,9 @@ const SignIn = () => {
 
   return (
     <div className='webPage'>
+      <header className="header">
+        <h1>FriendsZone</h1>
+      </header>
       <div className="container">
         <h2 className="title">Logowanie</h2>
         <Form
