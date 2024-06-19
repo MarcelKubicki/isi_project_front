@@ -4,8 +4,10 @@ import {
   UserOutlined, 
   TeamOutlined,
   HomeOutlined,
-  GroupOutlined
+  GroupOutlined,
+  PoweroffOutlined
 } from '@ant-design/icons';
+import useAuth from './useAuth';
 import './HomePage.css';
 const {Title} = Typography;
 const {Header, Content, Sider} = Layout;
@@ -14,6 +16,7 @@ const {Meta} = Card;
 const {TextArea} = Input;
 
 const HomePage = () => {
+  const { user, loading } = useAuth();
   return (
     <Layout>
       <Header
@@ -63,7 +66,7 @@ const HomePage = () => {
               {
                 key: '2',
                 icon: <UserOutlined />,
-                label: 'Profil',
+                label: `Profil`,
               },
               {
                 key: '3',
@@ -86,8 +89,8 @@ const HomePage = () => {
             items={[
               {
                 key: '1',
-                icon: <HomeOutlined />,
-                label: 'Strona Główna',
+                icon: <PoweroffOutlined />,
+                label: 'Wyloguj sie',
               }
             ]}
           />
@@ -111,7 +114,7 @@ const HomePage = () => {
                   size={64}
                   icon={<UserOutlined/>}
                 />
-                <Title level={3} style={{margin: 0}} >UserName</Title>
+                <Title level={3} style={{margin: 0}} >{user ? (<span>{user.username}</span>) : <p>Nie ma</p>}</Title>
               </Flex>
               <TextArea
                 showCount

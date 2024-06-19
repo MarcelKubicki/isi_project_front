@@ -1,11 +1,34 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Form, Input, Button } from 'antd';
+import React, { useState } from 'react';
+import {Link, useNavigate} from 'react-router-dom';
+import { Form, Input, Button, Alert } from 'antd';
+import axios from './axiosConfig';
 import './AuthForm.css';
 
 const SignIn = () => {
-  const onFinish = (values) => {
-    console.log('Received values:', values);
+  const [form] = Form.useForm();
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const onFinish = async (values) => {
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await axios.post('/api/auth/login', {
+        username: values.username,
+        password: values.password,
+      });
+      if (response.status === 200) {
+        const { token } = response.data;
+        console.log('JWT Token:', token);
+        localStorage.setItem('token', token);
+        navigate('/HomePage');
+      }
+    } catch (err) {
+      setError(err.response?.data?.message || 'Logowanie nie powiodło się. Spróbuj ponownie.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -19,7 +42,9 @@ const SignIn = () => {
       </header>
       <div className="container">
         <h2 className="title">Logowanie</h2>
+        {error && <Alert message={error} type="error" showIcon style={{ marginBottom: '16px' }} />}
         <Form
+          form={form}
           name="basic"
           initialValues={{ remember: true }}
           onFinish={onFinish}
@@ -40,17 +65,15 @@ const SignIn = () => {
               className="form-item"
             >
               <Input.Password placeholder='Hasło' />
-              
             </Form.Item>
             <div className='resetPassword'>
-                <p><Link to="/signUp">Nie pamiętasz hasła?</Link></p>
-              </div>
+              <p><Link to="/reset-password">Nie pamiętasz hasła?</Link></p>
+            </div>
           </div>
-
 
           <div className='submit-container'>
             <Form.Item className='button-container'>
-              <Button type="primary" htmlType="submit">
+              <Button type="primary" htmlType="submit" loading={loading}>
                 Zaloguj
               </Button>
             </Form.Item>
@@ -59,7 +82,6 @@ const SignIn = () => {
         </Form>
       </div>
     </div>
-
   );
 };
 
