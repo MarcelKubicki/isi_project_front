@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import { Form, Input, Button, Alert, Layout} from 'antd';
+import { GoogleLogin } from '@react-oauth/google';
+import { jwtDecode } from "jwt-decode";
 import axios from './axiosConfig';
 import './AuthForm.css';
 const {Header, Content} = Layout;
@@ -102,6 +104,15 @@ const SignIn = () => {
             </Form.Item>
             <p>Nie masz konta? <Link to="/signUp"><b>Dołącz do nas!</b></Link></p>
           </div>
+          <GoogleLogin
+            onSuccess={credentialResponse => {
+              const credentialResponseDecoded = jwtDecode(credentialResponse.credential);
+              console.log(credentialResponseDecoded);
+            }}
+            onError={() => {
+              console.log('Login Failed');
+            }}
+          />
         </Form>
       </div>
       </Content>
