@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import { Form, Input, Button, Alert, Layout} from 'antd';
-import { GoogleLogin } from '@react-oauth/google';
-import { jwtDecode } from "jwt-decode";
-import axios from './axiosConfig';
-import './AuthForm.css';
+// import { GoogleLogin } from '@react-oauth/google';
+// import { jwtDecode } from "jwt-decode";
+import axios from '../axiosConfig';
+import {GoogleOutlined} from '@ant-design/icons';
+import '../styles/AuthForm.css';
 const {Header, Content} = Layout;
 
 const SignIn = () => {
@@ -43,7 +44,7 @@ const SignIn = () => {
       <Header
         style={{
           display: 'flex',
-          padding: 0,
+          padding: '0 20px',
           position: 'sticky',
           top: 0,
           zIndex: 1,
@@ -104,15 +105,15 @@ const SignIn = () => {
             </Form.Item>
             <p>Nie masz konta? <Link to="/signUp"><b>Dołącz do nas!</b></Link></p>
           </div>
-          <GoogleLogin
-            onSuccess={credentialResponse => {
-              const credentialResponseDecoded = jwtDecode(credentialResponse.credential);
-              console.log(credentialResponseDecoded);
-            }}
-            onError={() => {
-              console.log('Login Failed');
-            }}
-          />
+          
+            <Button 
+              icon={<GoogleOutlined />} 
+              onClick={() => {
+                window.location.href='http://localhost:8080/oauth2/authorization/google';
+              }}
+            >
+              Zaloguj się przez Google
+            </Button>
         </Form>
       </div>
       </Content>

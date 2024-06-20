@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Form, Input, Button, Select, Alert, Layout} from 'antd';
 import {Link, useNavigate} from 'react-router-dom';
-import axios from './axiosConfig';
-import './AuthForm.css';
+import axios from '../axiosConfig';
+import '../styles/AuthForm.css';
 const {Header, Content} = Layout;
 
 const SignUp = () => {
@@ -42,7 +42,7 @@ const SignUp = () => {
       <Header
         style={{
           display: 'flex',
-          padding: 0,
+          padding: '0 20px',
           position: 'sticky',
           top: 0,
           zIndex: 1,

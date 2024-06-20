@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { ConfigProvider } from 'antd';
-import SignIn from './SignIn';
-import SignUp from './SignUp';
-import HomePage from './HomePage';
+import SignIn from './screens/SignIn';
+import SignUp from './screens/SignUp';
+import HomePage from './screens/HomePage';
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
           <Route path="/" element={<Navigate to="/signIn" replace/>} />
           <Route path="/signIn" element={<SignIn />} />
           <Route path="/signUp" element={<SignUp />} />
-          <Route path="/HomePage" element={<HomePage />} />
+          <Route path="/homePage/*" element={<HomePage />} />
         </Routes>
       </Router>
     </ConfigProvider>
