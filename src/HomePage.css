@@ -4,3 +4,8 @@
   border-radius: 10px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
 }
+
+.ant-menu-item-selected {
+  background-color: #001529 !important;
+  color: white !important;
+}

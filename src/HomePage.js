@@ -45,55 +45,51 @@ const HomePage = () => {
               left: 0,
               top: 62,
               bottom: 0,
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-between'
+              padding: '10px 5px'
             }}
         >
-          <Menu
-            mode="inline"
-            defaultSelectedKeys={['1']}
-            style={{
-              height: 'auto',
-              borderRight: 0,
-            }}
-            items={[
-              {
-                key: '1',
-                icon: <HomeOutlined />,
-                label: 'Strona Główna',
-              },
-              {
-                key: '2',
-                icon: <UserOutlined />,
-                label: `Profil`,
-              },
-              {
-                key: '3',
-                icon: <TeamOutlined />,
-                label: 'Znajomi',
-              },
-              {
-                key: '4',
-                icon: <GroupOutlined />,
-                label: 'Grupy',
-              },
-            ]}
-          />
-          <Menu
-            mode="inline"
-            style={{
-              // height: '100%',
-              // borderRight: 0,
-            }}
-            items={[
-              {
-                key: '1',
-                icon: <PoweroffOutlined />,
-                label: 'Wyloguj sie',
-              }
-            ]}
-          />
+          <Flex vertical justify='space-between' style={{height: '100%'}}>
+            <Menu
+              mode="inline"
+              defaultSelectedKeys={['1']}
+              style={{
+                height: 'auto',
+                borderRight: 0,
+              }}
+              items={[
+                {
+                  key: '1',
+                  icon: <HomeOutlined />,
+                  label: 'Strona Główna',
+                },
+                {
+                  key: '2',
+                  icon: <UserOutlined />,
+                  label: `Profil`,
+                },
+                {
+                  key: '3',
+                  icon: <TeamOutlined />,
+                  label: 'Znajomi',
+                },
+                {
+                  key: '4',
+                  icon: <GroupOutlined />,
+                  label: 'Grupy',
+                },
+              ]}
+            />
+            
+            <Button 
+              type='primary'
+              icon={<PoweroffOutlined />}
+              style={{
+                backgroundColor: '#001529'
+              }}
+            >
+              Wyloguj się
+            </Button>
+          </Flex>
         </Sider>
         <Layout
         style={{
@@ -114,7 +110,7 @@ const HomePage = () => {
                   size={64}
                   icon={<UserOutlined/>}
                 />
-                <Title level={3} style={{margin: 0}} >{user ? (<span>{user.username}</span>) : <p>Nie ma</p>}</Title>
+                <Title level={3} style={{margin: 0}} >{user ? (<span>{user.username}</span>) : <p>User Name</p>}</Title>
               </Flex>
               <TextArea
                 showCount
@@ -151,7 +147,7 @@ const HomePage = () => {
             <Meta
               avatar={<Avatar shape="square" size={45} icon={<UserOutlined/>} />}
               title="User Name"
-              description="Strasznie wczoraj zachlałem"
+              description="s simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem"
             />
           </Card>
 

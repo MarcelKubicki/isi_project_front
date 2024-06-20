@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import {Link, useNavigate} from 'react-router-dom';
-import { Form, Input, Button, Alert } from 'antd';
+import { Form, Input, Button, Alert, Layout} from 'antd';
 import axios from './axiosConfig';
 import './AuthForm.css';
+const {Header, Content} = Layout;
 
 const SignIn = () => {
   const [form] = Form.useForm();
@@ -36,10 +37,32 @@ const SignIn = () => {
   };
 
   return (
-    <div className='webPage'>
-      <header className="header">
-        <h1>FriendsZone</h1>
-      </header>
+    <Layout>
+      <Header
+        style={{
+          display: 'flex',
+          padding: 0,
+          position: 'sticky',
+          top: 0,
+          zIndex: 1,
+          width: '100%',
+          alignItems: 'center',
+        }}
+      >
+        <div className="header">
+          <h1>FZ: FriendsZone</h1>
+        </div>
+        
+      </Header>
+
+      <Content 
+        style={{
+          display: 'flex', 
+          justifyContent: 'center', 
+          minHeight: '92vh',
+          flexDirection: 'column',
+          alignItems: 'center'
+          }}>
       <div className="container">
         <h2 className="title">Logowanie</h2>
         {error && <Alert message={error} type="error" showIcon style={{ marginBottom: '16px' }} />}
@@ -67,7 +90,7 @@ const SignIn = () => {
               <Input.Password placeholder='Hasło' />
             </Form.Item>
             <div className='resetPassword'>
-              <p><Link to="/reset-password">Nie pamiętasz hasła?</Link></p>
+              <p><Link to="/reset-password"><b>Nie pamiętasz hasła?</b></Link></p>
             </div>
           </div>
 
@@ -77,11 +100,12 @@ const SignIn = () => {
                 Zaloguj
               </Button>
             </Form.Item>
-            <p>Nie masz konta? <Link to="/signUp">Dołącz do nas!</Link></p>
+            <p>Nie masz konta? <Link to="/signUp"><b>Dołącz do nas!</b></Link></p>
           </div>
         </Form>
       </div>
-    </div>
+      </Content>
+    </Layout>
   );
 };
 
