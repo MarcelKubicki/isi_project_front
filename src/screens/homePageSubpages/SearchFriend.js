@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { Avatar, List, message } from 'antd';
+import { Avatar, List, message, Input, Button } from 'antd';
 import VirtualList from 'rc-virtual-list';
+
+const {Search} = Input;
+
 const fakeDataUrl =
   'https://randomuser.me/api/?results=20&inc=name,gender,email,nat,picture&noinfo';
 const ContainerHeight = '100%';
 
-const Friends = () => {
+const SearchFriend = () => {
   const [data, setData] = useState([]);
   
   const appendData = () => {
@@ -28,6 +31,9 @@ const Friends = () => {
   };
 
   return (
+    <>
+    <Search placeholder='Wyszukaj uzytkownika'/>
+
     <List>
       <VirtualList
         data={data}
@@ -43,11 +49,15 @@ const Friends = () => {
               title={<a href="https://ant.design">{item.name.last}</a>}
               description={item.email}
             />
+            <Button>
+              Obserwuj
+            </Button>
           </List.Item>
         )}
       </VirtualList>
     </List>
+    </>
   );
 };
 
-export default Friends;
+export default SearchFriend;

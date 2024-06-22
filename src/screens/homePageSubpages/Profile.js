@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Avatar, Flex, Typography, Card, Button, Modal, Input, Row, Col} from 'antd';
+import {Avatar, Flex, Typography, Card, Button, Modal, Input, Row, Col, Dropdown} from 'antd';
 import {UserOutlined, SettingOutlined} from '@ant-design/icons';
 import useAuth from '../../useAuth';
 
@@ -36,6 +36,7 @@ const Profile = () => {
           <Button onClick={showModal}>
             <SettingOutlined /> Ustawienia profilu
           </Button>
+
           <Modal 
             title="Ustawienia profilu" 
             open={isModalOpen} 

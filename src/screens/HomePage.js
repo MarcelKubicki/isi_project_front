@@ -6,12 +6,14 @@ import {
   TeamOutlined,
   HomeOutlined,
   PoweroffOutlined,
-  TrademarkOutlined
+  TrademarkOutlined,
+  UsergroupAddOutlined
 } from '@ant-design/icons';
 
 import Profile from './homePageSubpages/Profile';
 import HomeMainBoard from './homePageSubpages/HomeMainBoard';
 import Friends from './homePageSubpages/Friends';
+import SearchFriend from './homePageSubpages/SearchFriend';
 
 import useAuth from '../useAuth';
 import '../styles/HomePage.css';
@@ -70,7 +72,10 @@ const HomePage = () => {
                 <Link to="/HomePage/Profile">Profil</Link>
               </Menu.Item>
               <Menu.Item key="3" icon={<TeamOutlined />}>
-                <Link to="/HomePage/Friends">Znajomi</Link>
+                <Link to="/HomePage/Friends">Obserwowani</Link>
+              </Menu.Item>
+              <Menu.Item key="4" icon={<UsergroupAddOutlined />}>
+                <Link to="/HomePage/SearchFriend">Obserwuj</Link>
               </Menu.Item>
             </Menu>
             
@@ -100,6 +105,7 @@ const HomePage = () => {
               <Route path="/" element={<HomeMainBoard user={user}/>} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/friends" element={<Friends />} />
+              <Route path="/searchFriend" element={<SearchFriend />} />
             </Routes>
           </Content>
 
